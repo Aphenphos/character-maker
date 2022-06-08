@@ -1,6 +1,4 @@
-// import needed modules does anything need to be imported?
 
-// state
 const character = {
     head: 'bird',
     middle: 'dress',
@@ -8,9 +6,6 @@ const character = {
     phrases: []
 };
 
-// components
-
-// Designer
 const designSection = document.getElementById('design-section');
 var [headSelect, middleSelect, pantsSelect] = designSection.querySelectorAll('select');
 
@@ -36,7 +31,6 @@ function displayDesigner() {
     
 }
 
-// AddPhrase
 const addPhraseSection = document.getElementById('add-phrase-section');
 const phraseInput = addPhraseSection.querySelector('input');
 const phraseButton = addPhraseSection.querySelector('button');
@@ -48,7 +42,6 @@ function handleAddPhrase() {
         phraseInput.value = '';
         phraseInput.focus();
         character.phrases.push(phrase);
-        console.log(character.phrases);
         displayPhrases();
     }}
 
@@ -78,7 +71,6 @@ const phraseList = phrasesSection.querySelector('ul');
 
 function displayPhrases() {
     phraseList.innerHTML = '';
-    console.log(character.phrases);
     for (const phrase of character.phrases) {
         const li = document.createElement('li');
         li.textContent = phrase;
