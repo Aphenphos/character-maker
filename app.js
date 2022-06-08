@@ -43,11 +43,14 @@ const phraseButton = addPhraseSection.querySelector('button');
 
 function handleAddPhrase() {
     
-    const phrase = phraseInput.textContent; if (phrase) return;
-    displayPhrases();
-    phraseInput.value = '';
-    phraseInput.focus();
-}
+    const phrase = phraseInput.value; 
+    if (phrase) {
+        phraseInput.value = '';
+        phraseInput.focus();
+        character.phrases.push(phrase);
+        console.log(character.phrases);
+        displayPhrases();
+    }}
 
 phraseButton.addEventListener('click', () => {
     handleAddPhrase();
@@ -67,7 +70,6 @@ function displayCharacter() {
     headImage.src = 'assets/character/' + character.head + '-head.png';
     middleImage.src = 'assets/character/' + character.middle + '-middle.png';
     pantsImage.src = 'assets/character/' + character.pants + '-pants.png';
-    // 'assets/character/' + <get prop value here> + '-head.png' update is working but images aren't
 }
 
 // Phrases
@@ -76,11 +78,11 @@ const phraseList = phrasesSection.querySelector('ul');
 
 function displayPhrases() {
     phraseList.innerHTML = '';
-
+    console.log(character.phrases);
     for (const phrase of character.phrases) {
         const li = document.createElement('li');
         li.textContent = phrase;
-        phraseList.add(li);
+        phraseList.append(li);
     }
 }
 
